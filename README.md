@@ -25,9 +25,9 @@
 
 	샘플 예제
 	- 현재 가격 얻어오기
-	>>> from rest_api import *
-	>>> r = call_api(GET_PRC, 'EOS')		// EOS 현재 가격 얻어옴
-	>>> r
+	from rest_api import *
+	r = call_api(GET_PRC, 'EOS')		// EOS 현재 가격 얻어옴
+	r
 	{'status': '0000', 'data': {'opening_price': '6510', 'closing_price': '6560', 'min_price': '6350', 'max_price': '6980', 'average_p
 	rice': '6642.4484', 'units_traded': '34792947.15503703', 'volume_1day': '34792947.15503703', 'volume_7day': '203422280.92040176000
 	0000000', 'buy_price': '6560', 'sell_price': '6570', 'date': '1522421010457'}}
@@ -45,8 +45,8 @@
 	-> r['status']=='0000' 이면 매수 또는 매도가 서버에 정상적으로 걸린 것.
 	
 	- 지정가 매도
-	>>> r = call_api(REQ_ORD, 'EOS', {'units':0.1, 'price':7000, 'type':'ask'})		# 7000원에 0.1개 매도 
-	>>> r
+	r = call_api(REQ_ORD, 'EOS', {'units':0.1, 'price':7000, 'type':'ask'})		# 7000원에 0.1개 매도 
+	r
 	{'status': '0000', 'order_id': '1522240512184440', 'data': [{'cont_id': '15288637', 'units': '0.100000000000000000', 'price': '678
 	0', 'total': 678, 'fee': 1}]}
 	
@@ -62,8 +62,8 @@
 		     이 수량과 비교해서 체결완료되었는지 판단합니다. 
 
 	샘플 예제
-	>>> rr = chk_order('1522240512184440', 'EOS', ASK, 0.1)	# r은 지정가 매도 실행 결과
-	>>> rr
+	rr = chk_order('1522240512184440', 'EOS', ASK, 0.1)	# r은 지정가 매도 실행 결과
+	rr
 	{'result': True, 'status': '0000', 'amnt': 0.1, 'krw': 678, 'fee': 1.0, 'prcs': 6780, 'date': 20180328, 'time': 213512}
 
 	rr['result'] == True 이면 거래가 체결된 것입니다.
